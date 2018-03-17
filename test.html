@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+      </head>
+
+      <body>
+          
+        <script>
+            function getIn(obj, path, def) {
+                let result = obj;
+                for (let i = 0; i < path.length; i++) {
+                    let key = path[i];
+                    result = result[key];
+                }
+                console.log(result);
+            }
+
+            const inception = {
+                dream1: {
+                    dream2: {
+                         dream3: {
+                            dream4: {
+                                dream5: {
+                                    dream6: 'Whirligig'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            getIn(inception, ['dream1', 'dream2', 'dream3', 'dream4', 'dream5', 'dream6'], 'Woke up');
+
+        
+        </script>
+
+      </body>
+
+</html>
