@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <script>
+    function plus(...args) {
+      let sum = 0;
+      for (let i = 0; i < args.length; i++) {
+        sum += args[i];
+      }
+      return sum;
+    }
+    const multiply = (...args) => args.reduce(   // это вроде как круто 
+      (a, b) => a * b,
+      1
+    )
+    function mergeArrays(a, b) {  // 3 базовое задание
+      return a.concat(b);
+    }
+    function filterFemales(a) {  // 4 базовое задание
+      let women = []
+      for (let i = 0; i < a.length; i++) {
+        if (a[i].sex == "Ж"){
+          women.push(a[i]);
+        }
+      }
+      console.log(women);
+    }
+    function filterFemales1(a) {  // 4  нормальное задание
+      return a.sex == "Ж";
+    }
+    function getQuarant(x, y){  // 5 базовое задание
+      if (x > 0 && y > 0){
+        console.log('Точка принадлежит 1 четверти');
+      }
+      else if (x > 0 && y < 0){
+        console.log('Точка принадлежит 4 четверти');
+      }
+      else if (x < 0 && y > 0){
+        console.log('Точка принадлежит 2 четверти');
+      }
+      else if (x < 0 && y < 0){
+        console.log('Точка принадлежит 3 четверти');
+      }
+      else if (x == 0 && y > 0){
+        console.log('Точка не принадлежит 1 и 2 четверти');
+      }
+      else if (x == 0 && y < 0){
+        console.log('Точка не принадлежит 3 и 4 четверти');
+      }
+      else if (x > 0 && y == 0){
+        console.log('Точка не принадлежит 1 и 4 четверти');
+      }
+      else if (x < 0 && y == 0){
+        console.log('Точка не принадлежит 1 и 2 четверти');
+      }
+      else if (x == 0 && y == 0){
+        console.log('All');
+      }
+    }
+    const objectToQueryString = (object) => encodeURIComponent(
+      Object.entries(object).map(
+          ([key, value]) => `${key}=${value}`
+      ).join("&")
+    )
+    
+    var getIn = (object, path, def) => path.reduce(
+      (currentObject, property) => {
+        if (currentObject && currentObject.hasOwnProperty(property)) {return currentObject[property]}
+      },
+      object
+    ) || def
+
+    
+    let people = [
+      {name: "Вася", sex: "М", film: "Трансформеры"},
+      {name: "Елена", sex: "Ж", film: "Лекарство"},
+      {name: "Алиса", sex: "Ж", film: "Пираты Карибского моря"},
+      {name: "Андрей", sex: "М", film: "Воин"},
+      {name: "Алексей", sex: "М", film: "Крепость"}
+    ];
+    let sum1 = plus(mas2 = [2, 3, 5, 7, 3]);
+    let man = {name1: 'John', name2: 'Федор'};
+    let peoplebus = [
+      {name: "Вася", sex: "М", film: "Трансформеры"},
+      {name: "Елена", sex: "Ж", film: "Лекарство"},
+      {name: "Алиса", sex: "Ж", film: "Пираты Карибского моря"},
+      {name: "Андрей", sex: "М", film: "Воин"},
+      {name: "Алексей", sex: "М", film: "Крепость"}
+    ].filter(filterFemales1);
+    const person = {
+      addres: {
+        street : 'Стремянный переулок'
+      }
+    };
+    const person1 = {
+        street : 'Стремянный переулок'
+    };
+    console.log(plus(1, 2));
+    console.log(multiply(plus(1, 2), 10));
+    console.log(mergeArrays(arr1 = ["1", "2", "3"], arr2 = ["4", "5"]));
+    filterFemales(people);
+    getQuarant(1, 2);
+    getQuarant(-1, 2);
+    getQuarant(-2, -3);
+    getQuarant(4, -7);
+    getQuarant(0, 0);
+    console.log(plus(2, 3, 5, 7, 3));
+    console.log(multiply(1, 2, 3, 100));
+    console.log(objectToQueryString({ name1: 'John', name2: 'Федор' }));
+    console.log(peoplebus);
+    console.log(getIn(person, ['addres', 'street'], 'Тебе стоит перехать из коробки'));
+    console.log(getIn(person1, ['addres', 'street'], 'Тебе стоит перехать из коробки'));
+  </script>
+
+</body>
+
+</html>
